@@ -1,0 +1,527 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; min-height: 100%; }
+body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
+
+/* PANTALLA DE ENTRADA */
+.entrada {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background: #f2eee7 url("images/fondo-entrada2.png") center / cover no-repeat;
+    transition: opacity .45s ease,
+        visibility .45s ease;
+}
+
+/* ========================================
+   SOBRE - ESTRUCTURA LIMPIA
+======================================== */
+
+.sobre {
+    position: relative;
+
+    width: min(90vw, 760px);
+    aspect-ratio: 1.58 / 1;
+
+    transform: translateY(-70px);
+
+    perspective: 1400px;
+    transform-style: preserve-3d;
+
+  filter:
+    drop-shadow(0 4px 3px rgba(48, 55, 59, .20))
+    drop-shadow(0 14px 9px rgba(48, 55, 59, .25))
+    drop-shadow(0 28px 18px rgba(48, 55, 59, .15));
+
+     overflow: visible !important;
+}
+
+
+/* RECTÁNGULO BASE DEL SOBRE */
+.fondo-sobre {
+    position: absolute;
+    inset: 0;
+
+    z-index: 3;
+
+    background:
+        url("images/textura-sobre.jpg")
+        center / cover no-repeat;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.35),
+        inset 0 -4px 8px rgba(49,65,78,.08);
+
+    transform: translateZ(0);
+}
+
+.tarjeta-interior {
+    position: absolute;
+
+    left: 50%;
+    bottom: 8%;
+
+    width: 82%;
+    height: 72%;
+
+    transform:
+        translateX(-50%)
+        translateY(40%);
+
+    z-index: 8;
+
+    background: #f6f1e7;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 -5px 12px rgba(45, 55, 62, .10),
+        0 10px 24px rgba(45, 55, 62, .18);
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+.tarjeta-contenido {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: #55483f;
+
+    font-family: "Cormorant Garamond", serif;
+}
+
+.tarjeta-contenido p {
+    font-size: 30px;
+    letter-spacing: 4px;
+}
+
+.tarjeta-contenido span {
+    margin-top: 10px;
+
+    font-size: 40px;
+    font-style: italic;
+}
+
+.sobre,
+.fondo-sobre {
+    border-radius: 10px;
+}
+
+.sobre {
+    overflow: hidden;
+}
+
+/* SOLAPA REAL */
+.solapa {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 57% !important;
+
+    z-index: 4;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.08),
+            rgba(255,255,255,0) 60%,
+            rgba(42,58,70,.05)
+        ),
+        url("images/textura-sobre.jpg")
+        center / cover no-repeat;
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 100%
+    );
+
+    transform-origin: top center;
+
+    transform:
+        translateZ(8px);
+
+     filter:
+        brightness(1.045)
+        drop-shadow(0 5px 3px rgba(48, 62, 74, .20))
+        drop-shadow(0 10px 8px rgba(48, 62, 74, .12));
+
+    backface-visibility: hidden;
+}
+
+
+
+/* ========================================
+   DOBLECES INFERIORES
+======================================== */
+
+/* LÍNEAS REALES DE LOS DOBLECES */
+
+.sobre::before,
+.sobre::after {
+    content: "";
+
+    position: absolute;
+    z-index: 4;
+
+    width: 52%;
+    height: 1%;
+
+    /* borde azul-gris del pliegue */
+    background: linear-gradient(
+            to bottom,
+            rgba(245,248,250,.42),
+            rgba(69,88,103,.34)
+        );
+
+    /* pequeño brillo que le da relieve */
+    box-shadow:
+          0 2px 4px rgba(54,70,82,.15);
+
+    pointer-events: none;
+}
+
+
+/* línea izquierda */
+.sobre::before {
+    left: 0;
+    bottom: 0;
+
+    transform-origin: left center;
+
+    transform:
+        rotate(-31deg)
+        translateY(-2px);
+}
+
+
+/* línea derecha */
+.sobre::after {
+    right: 0;
+    bottom: 0;
+
+    transform-origin: right center;
+
+    transform:
+        rotate(31deg)
+        translateY(-2px);
+}
+
+
+/* ========================================
+   ENCAJE SOBRE LA SOLAPA
+======================================== */
+
+.encajes {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 7;
+
+    pointer-events: none;
+
+    /* IMPORTANTE: por ahora NO recortamos */
+    overflow: hidden;
+    border-radius: 7px;
+}
+
+
+/* IMAGEN DEL ENCAJE */
+
+.encaje {
+    position: absolute;
+
+    width: 75%;
+    height: auto;
+
+    pointer-events: none;
+
+    /* integra el encaje con el dusty blue */
+    filter:
+        saturate(.72)
+        brightness(.92)
+        contrast(.92)
+
+        /* sombra inmediata debajo */
+        drop-shadow(0 2px 1px rgba(55, 70, 83, .28))
+
+        /* sombra más suave y profunda */
+        drop-shadow(0 6px 4px rgba(55, 70, 83, .18));
+}
+
+
+/* IZQUIERDO */
+
+.encaje-izquierdo {
+    top: -40%;
+    left: 0;
+
+    transform-origin: left top;
+
+    transform: rotate(35deg);
+}
+
+
+/* DERECHO */
+
+.encaje-derecho {
+    top: -40%;
+    right: 0;
+
+    transform-origin: right top;
+
+    transform: rotate(-35deg);
+}
+
+
+
+
+/* Texto y sello */
+.contenido-sobre {
+    position: absolute;
+    inset: 0;
+
+    z-index: 7;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 10%;
+
+    text-align: center;
+
+    color: #3d4241;
+}
+
+.love-letter {
+    position: absolute;
+
+    /* MÁS ARRIBA */
+    top: 10%;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    text-align: center;
+
+    font-size: clamp(9px, 1.3vw, 20px);
+
+    /* MÁS GRUESA */
+    font-weight: 600;
+
+    letter-spacing: 3.5px;
+
+    color: #55483f;
+
+    margin: 0;
+}
+
+.contenido-sobre h1 {
+    font-family: "Pinyon Script", cursive;
+    font-size: clamp(36px, 6vw, 70px);
+    font-weight: 400;
+    color: #55483f;
+    line-height: 1;
+}
+
+.contenido-sobre h1 span {
+    font-family: "Cormorant Garamond", serif;
+    font-size: .72em;
+    font-style: italic;
+}
+
+.sello {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+        translateZ(18px);
+    width: clamp(75px, 17vw, 130px);
+    height: auto;
+    filter:drop-shadow(0 10px 7px rgba(51,44,36,.28))
+        drop-shadow(0 2px 2px rgba(51,44,36,.16));
+}
+
+.sello img { display: block; width: 100%; height: auto; }
+
+#abrirInvitacion {
+    position: absolute;
+
+    bottom: 8.5%;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    border: 0;
+    background: transparent;
+
+    /* MÁS OSCURO */
+    color: #55483f;
+
+    /* MÁS GRUESO */
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(10px, 1.4vw, 20px);
+    font-weight: 600;
+
+    letter-spacing: 3.2px;
+
+    white-space: nowrap;
+    cursor: pointer;
+
+    padding: 10px 16px;
+
+    /* ayuda a que destaque sobre la textura */
+    text-shadow: 0 1px 1px rgba(255,255,255,.35);
+
+    transition:
+        opacity .25s ease,
+        letter-spacing .25s ease;
+}
+
+#abrirInvitacion:hover {
+    opacity: .7;
+    letter-spacing: 3.7px;
+}
+#abrirInvitacion:focus-visible { outline: 2px solid #667d94; outline-offset: 4px; }
+
+/* APERTURA 
+.entrada.abriendo .solapa { transform: rotateX(180deg); }
+.entrada.abriendo .encajes { animation: retirarEncaje .65s forwards; }
+.entrada.abriendo .contenido-sobre { animation: desaparecerTexto .5s forwards; }
+.entrada.abriendo .sobre { animation: abrirSobre 1.10s forwards; }
+
+@keyframes retirarEncaje { to { opacity: 0; transform: translateY(-16px); } }
+@keyframes desaparecerTexto { to { opacity: 0; } }
+@keyframes abrirSobre {
+    0% {
+        transform: translateY(-70px) scale(1);
+        opacity: 1;
+    }
+
+    45% {
+        transform: translateY(-75px) scale(1.025);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110px) scale(.96);
+        opacity: 0;
+    }
+}
+
+.entrada.oculta { opacity: 0; visibility: hidden; }
+*/
+/* CONTENIDO EXISTENTE */
+.invitacion { min-height: 100vh; }
+.hero {
+    min-height: 100vh;
+    background: #304438;
+    color: #f5f1e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8vw;
+    padding: 70px 7%;
+}
+.foto-placeholder {
+    width: min(42vw, 420px);
+    height: 75vh;
+    background: #d9d4c6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #65665f;
+    letter-spacing: 4px;
+    font-size: 12px;
+}
+.hero-texto { max-width: 400px; }
+.hero-texto > p:first-child { margin-bottom: 25px; font-size: 12px; letter-spacing: 4px; }
+.hero-texto h2 { font-size: clamp(55px, 7vw, 105px); font-weight: 300; line-height: .82; }
+.linea { width: 70px; height: 1px; margin: 35px 0; background: #f5f1e8; }
+.fecha { letter-spacing: 5px; font-size: 15px; }
+
+@media (max-width: 700px) {
+    .entrada { padding: 14px; }
+    .sobre { width: 94vw;
+    transform: translateY(-90px); }
+    .contenido-sobre { padding-top: 12.5%; }
+    .encaje { width: 74%; }
+    .hero { min-height: 100svh; flex-direction: column; justify-content: flex-end; padding: 0; position: relative; }
+    .foto-placeholder { width: 100%; height: 100svh; }
+    .hero-texto { position: absolute; bottom: 55px; left: 30px; z-index: 2; }
+    .hero-texto h2 { font-size: 60px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+.sobre {
+    perspective: 1400px;
+    transform-style: preserve-3d;
+}
+
+.solapa,
+.encajes {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform-origin: top center;
+    will-change: transform;
+}
+
+.solapa {
+    box-shadow:
+        0 7px 8px rgba(48, 61, 72, .12),
+        0 15px 25px rgba(48, 61, 72, .08);
+}
+
+.invitacion {
+    min-height: 100vh;
+
+    opacity: 0;
+    transform: scale(1.015);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.solapa,
+.encajes {
+    transform-origin: top center;
+    transform-style: preserve-3d;
+    backface-visibility: visible;
+}
+
+.sobre {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+}
+
+.solapa {
+    filter:
+        brightness(1.04)
+        drop-shadow(0 5px 5px rgba(55, 65, 72, .15));
+}
+
