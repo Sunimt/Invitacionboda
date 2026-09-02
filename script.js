@@ -133,3 +133,53 @@ tl.set("#invitacion", {
     scale: 1
 });
 });
+
+const fechaBoda = new Date("2026-12-05T16:30:00").getTime();
+
+function actualizarContador() {
+    const ahora = new Date().getTime();
+    const diferencia = fechaBoda - ahora;
+
+    if (diferencia <= 0) {
+        document.getElementById("dias").textContent = "00";
+        document.getElementById("horas").textContent = "00";
+        document.getElementById("minutos").textContent = "00";
+        document.getElementById("segundos").textContent = "00";
+        return;
+    }
+
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+    document.getElementById("dias").textContent = String(dias).padStart(2, "0");
+    document.getElementById("horas").textContent = String(horas).padStart(2, "0");
+    document.getElementById("minutos").textContent = String(minutos).padStart(2, "0");
+    document.getElementById("segundos").textContent = String(segundos).padStart(2, "0");
+}
+
+actualizarContador();
+setInterval(actualizarContador, 1000);
+
+document.getElementById("rsvpForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const nombre = document.getElementById("nombre").value.trim();
+  const asistencia = document.getElementById("asistencia").value.trim();
+  const acompanantes = document.getElementById("acompanantes").value.trim();
+  const mensaje = document.getElementById("mensaje").value.trim();
+
+  const texto = 
+`Hola, confirmamos asistencia a la boda de Sunim y Asahel.
+
+Nombre: ${nombre}
+Asistencia: ${asistencia}
+¿Quiénes asistirán?: ${acompanantes || "No especificado"}
+Mensaje: ${mensaje || "Sin mensaje"}`;
+
+  const numero = "526441895826"; // CAMBIA ESTE NÚMERO POR EL TUYO
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+
+  window.open(url, "_blank");
+});

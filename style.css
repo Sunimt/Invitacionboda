@@ -417,6 +417,8 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
     justify-content: center;
     gap: 8vw;
     padding: 70px 7%;
+     position: relative;
+    z-index: 3;
 }
 .foto-placeholder {
     width: min(42vw, 420px);
@@ -517,8 +519,9 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 .hero {
     width: 100%;
     min-height: 100svh;
-    background: #dfe3ec;
-    overflow: hidden;
+    background: #49637a;
+   overflow: visible;
+
 }
 
 .foto-portada {
@@ -537,51 +540,149 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
     object-position: center center;
 }
 
-/* S&A */
+/* ========================================
+   MONOGRAMA S&A
+======================================== */
+
 .monograma-portada {
     position: absolute;
     inset: 0;
     margin: auto;
+
     width: 78%;
     top: 3%;
+
     z-index: 3;
+
     opacity: .80;
     pointer-events: none;
 }
 
-/* PAPEL ENCIMA DE LA FOTO */
+
+/* ========================================
+   PAPEL RASGADO
+======================================== */
+
 .papel-rasgado {
     position: absolute;
-    left: -8px;
-    bottom: -55px;
-    width: calc(100% + 16px);
-    height: 118px;
+
+    left: -10px;
+    bottom: -52px;
+
+    width: calc(100% + 20px);
+    height: 100px;
+
     object-fit: fill;
+
     z-index: 4;
 }
 
+
+/* ========================================
+   HORTENSIAS
+======================================== */
+
 .hortensias-portada {
     position: absolute;
-    right: -10px;
-    bottom: -78px;
-    width: min(46vw, 210px);
+
+    right: -6px;
+    bottom: -66px;
+
+    width: 43vw;
+    max-width: 195px;
+
     height: auto;
+
     z-index: 5;
+
+    pointer-events: none;
 }
 
-/* FRANJA AZUL */
-.franja-azul {
-    width: 100%;
-    height: 16svh;
-    background: #9cb4cc; /* azul más vivo */
-    margin-top: 0;
-    position: relative;
-    z-index: 1;
+
+
+
+/* ========================================
+   SOLO CELULAR
+======================================== */
+
+.solo-escritorio {
+    display: none;
 }
+
+
+/* ========================================
+   COMPUTADORA
+======================================== */
+
+@media (min-width: 701px) {
+
+    .hero {
+        display: none;
+    }
+
+    .solo-escritorio {
+        width: 100vw;
+        height: 100vh;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        background: #f1eee5;
+
+        text-align: center;
+    }
+
+    .mensaje-escritorio {
+        color: #55483f;
+
+        padding: 40px;
+    }
+
+    .mensaje-escritorio p {
+        font-family: "Pinyon Script", cursive;
+
+        font-size: 64px;
+
+        margin-bottom: 25px;
+    }
+
+    .mensaje-escritorio h2 {
+        font-family: "Cormorant Garamond", serif;
+
+        font-size: 26px;
+        font-weight: 400;
+        line-height: 1.4;
+
+        margin-bottom: 25px;
+    }
+
+    .mensaje-escritorio span {
+        font-size: 14px;
+        letter-spacing: 4px;
+    }
+}
+
+
+/* ========================================
+   CELULAR
+======================================== */
 
 @media (max-width: 700px) {
+
+    .solo-escritorio {
+        display: none;
+    }
+
+    .hero {
+        display: block;
+        overflow: visible;
+    }
+
     .foto-portada {
         height: 85svh;
+        overflow: visible;
     }
 
     .foto-principal {
@@ -596,84 +697,1352 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 
     .papel-rasgado {
         left: -10px;
-        bottom: -180px;
+
+        bottom: -175px;
+
         width: calc(100% + 20px);
         height: 250px;
     }
 
     .hortensias-portada {
         right: -8px;
+
         bottom: -170px;
-        width: 55vw;
+
+        width: 60vw;
         max-width: 240px;
+        z-index: 10;
     }
 
-    .franja-azul {
-        height: 15svh;
-        background: #9cb4cc;
+
+}
+
+
+
+.saludo-invitacion {
+    font-family: "Pinyon Script", cursive;
+    font-size: 35px;
+    line-height: 1;
+    color: #55483f;
+    margin-bottom: 14px;
+    margin-top: 50px;
+}
+
+.texto-invitacion {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #55483f;
+    margin-bottom: 22px;
+}
+
+
+.faltan-titulo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    letter-spacing: 4px;
+    color: #9db8e0;
+    margin-bottom: 16px;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+.contador {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+}
+
+.bloque-tiempo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 58px;
+}
+
+.bloque-tiempo span {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 42px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.bloque-tiempo small {
+    margin-top: 7px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+      color: #9db8e0;
+}
+
+.separador {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+    line-height: 1;
+      color: #9db8e0;
+    margin-top: 2px;
+}
+
+@media (max-width: 700px) {
+    .seccion-invitacion {
+        padding: 18px 24px 65px;
+    }
+
+    .saludo-invitacion {
+        font-size: 44px;
+    }
+
+    .texto-invitacion {
+        font-size: 20px;
+        font-weight: bold;
+
+    }
+
+
+    .bloque-tiempo {
+        min-width: 55px;
+    }
+
+    .bloque-tiempo span {
+        font-size: 40px;
+    }
+
+    .bloque-tiempo small {
+        font-size: 15px;
+        letter-spacing: 1.5px;
+    }
+
+    .separador {
+        font-size: 28px;
     }
 }
 
-/* ========================================
-   SOLO CELULAR
-======================================== */
-
-.solo-escritorio {
+.franja-azul {
     display: none;
 }
 
-/* COMPUTADORA */
-@media (min-width: 701px) {
+.seccion-invitacion {
+    position: relative;
+    margin-top: -2px;
+    z-index: 2;
+    padding-top: 18px;
+}
 
-    .hero {
-        display: none;
+/* ========================================
+   LUGAR DEL EVENTO
+======================================== */
+
+.seccion-lugar {
+    position: relative;
+
+    width: 100%;
+
+    background: #49637a;
+    color: #ffffff;
+
+    text-align: center;
+
+    padding: 5px 24px 50px;
+
+    overflow: hidden;
+
+    margin-top: -200px;
+}
+
+.lugar-contenido {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 380px;
+
+    margin: 0 auto;
+}
+
+
+
+
+
+/* DIBUJO DEL LOCAL */
+
+.dibujo-local {
+    display: block;
+
+    width: 110%;
+    max-width: 430px;
+    height: auto;
+
+    margin: 0 auto 32px;
+
+    transform: translateX(-5%);
+
+    opacity: .95;
+}
+
+
+/* TÍTULO */
+
+.titulo-lugar {
+    margin-bottom: 8px;
+
+    font-family: "Pinyon Script", cursive;
+    font-size: 39px;
+    line-height: 1;
+
+    color: #ffffff;
+}
+
+
+/* NOMBRE DEL LUGAR */
+
+.nombre-lugar {
+    margin-bottom: 10px;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    color: #F3EBDD;
+}
+
+
+/* DIRECCIÓN */
+
+.direccion-lugar {
+    margin-bottom: 25px;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 16px;
+    line-height: 1.5;
+
+    color: #ffffff;
+}
+
+
+/* BOTÓN MAPA */
+
+.boton-mapa {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 190px;
+
+    padding: 12px 26px;
+
+    border-radius: 7px;
+
+    background: #F3EBDD;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    color: #6B5545;
+
+    text-decoration: none;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+
+    transition:
+        transform .2s ease,
+        opacity .2s ease;
+}
+
+.boton-mapa:active {
+    transform: scale(.97);
+}
+
+
+/* ========================================
+   HORTENSIAS DEL LUGAR
+======================================== */
+
+.hortensias-lugar {
+    position: absolute;
+
+    left: -55px;
+    bottom: -35px;
+
+    width: 310px;
+    max-width: 78vw;
+
+    height: auto;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   CELULAR
+======================================== */
+
+@media (max-width: 700px) {
+
+    .seccion-lugar {
+        padding:
+            38px
+            22px
+            145px;
     }
 
-    .solo-escritorio {
-        width: 100vw;
-        height: 100vh;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        background: #f1eee5;
-        text-align: center;
+    .fecha-lugar {
+        font-size: 40px;
+        margin-bottom: 24px;
+        margin-top: -20px;
+        
     }
 
-    .mensaje-escritorio {
-        color: #55483f;
-        padding: 40px;
+    .dibujo-local {
+        width: 115%;
+
+        margin-bottom: 28px;
+        margin-top: -40px;
+
+        transform: translateX(-6%);
     }
 
-    .mensaje-escritorio p {
-        font-family: "Pinyon Script", cursive;
-        font-size: 64px;
-        margin-bottom: 25px;
+    .titulo-lugar {
+        font-size: 38px;
     }
 
-    .mensaje-escritorio h2 {
-        font-family: "Cormorant Garamond", serif;
-        font-size: 26px;
-        font-weight: 400;
-        line-height: 1.4;
-        margin-bottom: 25px;
+    .nombre-lugar {
+        font-size: 19px;
     }
 
-    .mensaje-escritorio span {
-        font-size: 14px;
-        letter-spacing: 4px;
+    .direccion-lugar {
+        font-size: 15px;
+    }
+
+    .hortensias-lugar {
+        left: -65px;
+        bottom: -38px;
+
+        width: 300px;
+        max-width: 80vw;
     }
 }
 
-/* CELULAR */
-@media (max-width: 700px) {
+.seccion-lugar {
+    position: relative;
+    margin-top: -50px;
+    border: none;
+    outline: none;
+}
 
-    .solo-escritorio {
-        display: none;
-    }
+.foto-seccion {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: -40px;
+}
 
-    .hero {
-        display: block;
-    }
+.foto-seccion-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    margin-top: -40px;
+}
+
+/* ========================================
+   TRANSICIÓN ENTRE UBICACIÓN Y FOTO
+======================================== */
+
+.transicion-foto {
+    position: relative;
+
+    width: 100%;
+    height: 75px;
+
+    background: #49637a;
+
+    z-index: 5;
+
+    overflow: visible;
+     border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  margin-top: -1px;
+}
+
+/* PAPEL RASGADO */
+
+.papel-transicion {
+    position: absolute;
+
+    left: -10px;
+    bottom: -50px;
+    top: -102px;
+
+    width: calc(100% + 20px);
+    height: 250px;
+
+    object-fit: fill;
+
+    z-index: 6;
+
+    pointer-events: none;
+
+}
+/* HORTENSIAS */
+
+.hortensias-transicion {
+    position: absolute;
+
+    left: -35px;
+    bottom: -55px;
+    top: -120px;
+    
+
+    width: 220px;
+    height: auto;
+
+    z-index: 7;
+
+    pointer-events: none;
+}
+
+/* FOTO SIGUIENTE */
+
+.seccion-foto {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.foto-seccion-img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+.papel-rasgado-azul {
+    position: absolute;
+
+    left: -10px;
+    bottom: -52px;
+
+    width: calc(100% + 20px);
+    height: 120px;
+    margin-top: -10px;
+
+    object-fit: fill;
+
+    z-index: 4;
+}
+
+.seccion-itinerario {
+  width: 100%;
+  background: #49637a;
+
+  position: relative;
+  z-index: 2;
+
+  margin-top: -2px;   /* tapa la línea */
+  padding: 35px 25px 100px; /* menos espacio arriba */
+
+  color: #ffffff;
+  text-align: center;
+
+  box-shadow: 0 -3px 0 #49637a; /* termina de cubrir la unión */
+}
+
+.itinerario-contenido {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+
+
+
+/* TÍTULO */
+.itinerario-titulo {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 42px;
+  font-weight: 400;
+
+  letter-spacing: 5px;
+
+  margin-bottom: 55px;
+
+  color: #ffffff;
+}
+
+
+/* LISTA */
+.itinerario-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+
+.itinerario-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.itinerario-hora {
+  width: 70px;
+  text-align: left;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 27px;
+  color: #ffffff;
+}
+
+.itinerario-linea {
+  width: 140px;
+  height: 1px;
+
+  margin: 0 18px;
+
+  background: rgba(255, 255, 255, 0.7);
+  flex-shrink: 0;
+}
+
+.itinerario-evento {
+  width: 150px;
+
+  text-align: right;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 24px;
+  font-style: normal;
+
+  color: #ffffff;
+}
+
+.seccion-invitacion {
+  background: #49637a;
+  color: #fffaf3;
+
+  width: 100%;
+  text-align: center;
+
+  padding: 70px 25px 90px;
+}
+
+.contenido-invitacion {
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+
+/* FRASE DE ARRIBA */
+.bendicion {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  line-height: 1.5;
+
+  margin-bottom: 35px;
+
+  color: #fffaf3;
+}
+
+
+/* PADRES */
+.padres {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+
+  margin-bottom: 40px;
+}
+
+.padres div {
+  width: 50%;
+}
+
+.padres p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  line-height: 1.25;
+
+  margin: 0;
+
+  color: #fffaf3;
+}
+
+
+/* NOMBRES */
+.nombres-invitacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 25px 0 35px;
+}
+
+.nombres-invitacion span {
+  font-family: "Pinyon Script", cursive;
+
+  font-size: 62px;
+  line-height: .8;
+
+  color: #fffaf3;
+}
+
+.nombres-invitacion small {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 22px;
+
+  margin: 10px 0;
+
+  color: #fffaf3;
+}
+
+
+/* FRASE DE INVITACIÓN */
+.frase-invitacion {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 13px;
+  letter-spacing: 1.7px;
+
+  line-height: 1.5;
+
+  margin-bottom: 40px;
+
+  color: #fffaf3;
+}
+
+.fecha-boda {
+  font-family: "Pinyon Script", cursive;
+  font-size: 34px;
+  font-weight: 400;
+
+  color: #fffaf3;
+
+  margin-top: 10px;
+  margin-bottom: 40px;
+
+  text-align: center;
+  letter-spacing: 0;
+}
+
+.texto-biblico {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.versiculo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-style: italic;
+
+  color: #fffaf3;
+
+  max-width: 330px;
+  margin: 0 auto 14px;
+}
+
+.cita-biblica {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+
+  color: #9db8e0;
+
+  margin: 0;
+}
+
+.seccion-flores-foto {
+  position: relative;
+  width: 100%;
+  background: #49637a;
+
+  padding-top: 40px;
+  padding-bottom: 10px;
+
+  margin-top: -150px;
+
+  overflow: hidden;
+}
+
+/* ========================================
+   PAPEL RASGADO ARRIBA
+======================================== */
+
+.rasgado-superior {
+  position: absolute;
+
+  top: 55px;
+  left: -10px;
+
+  width: calc(100% + 20px);
+  height: 150px;
+
+  object-fit: fill;
+
+  z-index: 4;
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   FOTO
+======================================== */
+
+.contenedor-foto-seccion {
+  position: relative;
+   
+  width: 100%;
+
+  margin-top: 80px;
+
+  z-index: 2;
+
+  overflow: hidden;
+}
+
+.foto-seccion2 {
+  display: block;
+
+  width: 100%;
+  height: 520px;
+   background: #F6F3E5;
+  object-fit: cover;
+  object-position: center;
+
+}
+
+
+/* ========================================
+   PAPEL RASGADO ABAJO
+======================================== */
+.rasgado-inferior {
+  position: absolute;
+
+  bottom: -80px;
+  left: -10px;
+  
+  width: calc(100% + 20px);
+  height: 150px;
+
+  object-fit: fill;
+
+  z-index: 4;
+}
+
+.seccion-dresscode {
+  width: 100%;
+  background: #F6F3E5;
+
+  padding: 80px 20px 100px;
+
+  position: relative;
+  overflow: hidden;
+  border: none !important;
+  box-shadow: none !important;
+  margin-top: -20px;
+}
+
+
+/* CONTENEDOR GENERAL */
+.dresscode-composicion {
+  width: 100%;
+  max-width: 390px;
+
+  margin: 0 auto;
+
+  position: relative;
+}
+
+
+/* TARJETA BLANCA GRANDE */
+.tarjeta-principal {
+  position: relative;
+
+  width: 100%;
+  height: 640px;
+
+  background: rgba(255, 255, 255, 0.28);
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+
+  overflow: visible;
+}
+
+
+/* ========================================
+   CUADRO SUPERIOR
+======================================== */
+
+.formal-box {
+  position: absolute;
+
+  top: 10px;
+  left: 0;
+
+  width: 215px;
+
+  background: #ffffff;
+
+  padding: 22px 18px;
+
+  text-align: center;
+
+  color: #1f1f1f;
+
+  z-index: 3;
+
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+.formal-titulo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  margin-bottom: 8px;
+
+  color: #111111;
+}
+
+.formal-box p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  line-height: 1.45;
+
+  margin: 0;
+
+  color: #202020;
+}
+
+
+/* ========================================
+   CÓDIGO DE VESTIMENTA
+======================================== */
+
+.codigo-img {
+  position: absolute;
+
+  top: 100px;
+  left: 78px;
+
+  width: 190px;
+  height: auto;
+
+  z-index: 5;
+}
+
+
+/* ========================================
+   DIBUJO TRAJE / VESTIDO
+======================================== */
+.dibujo-dresscode {
+  position: absolute;
+
+  top: 160px;
+  right: 10px;
+
+  width: 225px;
+  height: auto;
+
+  background: #ffffff;
+
+  padding: 18px;
+
+  border: 1px solid rgba(73, 99, 122, 0.10);
+
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.10);
+
+  z-index: 2;
+}
+
+
+/* ========================================
+   CUADRO BOTAS Y COLORES
+======================================== */
+
+.western-box {
+  position: absolute;
+
+  left: 18px;
+  bottom: 100px;
+
+  width: 170px;
+
+  background: #49637a;
+  color: #F6F3E5;
+
+  padding: 20px 14px;
+
+  text-align: center;
+
+  z-index: 6;
+
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
+}
+
+.western-aviso {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  line-height: 1.4;
+
+  margin-bottom: 18px;
+
+  color: #F6F3E5;
+}
+
+.no-usar {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  line-height: 1.4;
+
+  margin-bottom: 12px;
+
+  color: #F6F3E5;
+}
+
+
+/* COLORES */
+.colores-no-usar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.circulo {
+  width: 22px;
+  height: 22px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.blanco {
+  background: #ffffff;
+}
+
+.beige {
+  background: #e8dcc8;
+}
+
+.amarillo {
+  background: #f3edbe;
+}
+
+.gris {
+  background: #dfdfdc;
+}
+
+
+/* ========================================
+   FLORES
+======================================== */
+
+.flores-dresscode {
+  position: absolute;
+
+  right: -8px;
+  bottom: 8px;
+
+  width: 170px;
+  height: auto;
+
+  z-index: 7;
+
+  pointer-events: none;
+}
+
+.regalos-bloque {
+  position: relative;
+
+  width: 100%;
+  max-width: 380px;
+
+  height: 430px;
+
+  margin: 90px auto 0;
+
+  background: transparent;
+}
+
+
+/* TARJETA BLANCA */
+.tarjeta-regalos {
+  position: absolute;
+
+  top: -40px;
+  left: 25px;
+
+  width: 285px;
+  min-height: 210px;
+
+  background: #ffffff;
+
+  padding: 65px 28px 35px;
+
+  text-align: center;
+
+  box-shadow: 0 10px 24px rgba(0,0,0,.10);
+
+  z-index: 2;
+}
+
+
+/* SELLO */
+.sello-regalos {
+  position: absolute;
+
+  top: -40px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 65px;
+  height: auto;
+
+  z-index: 4;
+}
+
+
+/* TEXTO */
+.texto-regalos {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 16px;
+  line-height: 1.55;
+
+  letter-spacing: 1px;
+
+  color: #2b2b2b;
+
+  margin: 0;
+}
+
+
+/* CALAS */
+.calas-regalos {
+  position: absolute;
+
+  left: 0;
+  bottom: 90px;
+
+  width: 170px;
+  height: auto;
+
+  z-index: 3;
+
+  pointer-events: none;
+}
+
+
+/* CÍRCULO AZUL "REGALOS" */
+.circulo-regalos {
+  position: absolute;
+
+  right: 10px;
+  bottom: 120px;
+  
+
+  width: 185px;
+  height: auto;
+
+  z-index: 5;
+
+  pointer-events: none;
+}
+
+.seccion-corte-foto {
+  position: relative;
+
+  width: 100%;
+  height: 520px;
+  margin-top: -150px;
+  
+
+  overflow: hidden; 
+    border: none !important;
+  outline: none !important;
+
+  background: #F6F3E5;
+}
+
+.seccion-corte-foto::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 5px;
+
+  background: #F6F3E5;
+
+  z-index: 20;
+
+  pointer-events: none;
+}
+/* FOTO */
+.foto-corte {
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* RASGADO ARRIBA */
+.rasgado-arriba {
+  position: absolute;
+
+  top: -100px;
+  left: -10px;
+
+  width: calc(100% + 20px);
+  height: 150px;
+
+  object-fit: fill;
+
+  z-index: 3;
+
+  pointer-events: none;
+}
+
+
+/* RASGADO ABAJO */
+.rasgado-abajo {
+  position: absolute;
+
+  bottom: -100px;
+  left: -10px;
+
+  width: calc(100% + 20px);
+  height: 150px;
+
+  object-fit: fill;
+
+  z-index: 3;
+
+  transform: rotate(180deg);
+
+  pointer-events: none;
+}
+
+.seccion-corte-foto,
+.seccion-anterior,
+.seccion-siguiente {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+
+  outline: none !important;
+  box-shadow: none !important;
+
+}
+
+.seccion-rsvp {
+  width: 100%;
+  background: #F6F3E5;
+  padding: 70px 20px 90px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  margin-top: -2px;
+}
+
+.seccion-rsvp::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: #F6F3E5;
+  z-index: 20;
+}
+
+.rsvp-contenedor {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  height: 690px;
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+/* FLORES */
+.rsvp-flores {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+/* TARJETA */
+.rsvp-card {
+  position: absolute;
+  top: 105px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 290px;
+  background: #ffffff;
+  border-radius: 0;
+  padding: 22px 18px 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  border: 2px solid rgba(73, 99, 122, 0.35);
+  z-index: 3;
+}
+
+.rsvp-titulo {
+  margin: 0 0 10px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #2a2a2a;
+}
+
+.rsvp-aviso {
+  margin: 0 0 16px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  color: #49637a;
+}
+
+
+/* FORMULARIO */
+.rsvp-formulario {
+  text-align: left;
+}
+
+.rsvp-formulario label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  color: #2e2e2e;
+}
+
+.rsvp-formulario input,
+.rsvp-formulario select,
+.rsvp-formulario textarea {
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border: 1px solid #d5d5d5;
+  background: #f7f7f7;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  color: #2a2a2a;
+  box-sizing: border-box;
+  resize: none;
+  outline: none;
+}
+
+.rsvp-formulario input:focus,
+.rsvp-formulario select:focus,
+.rsvp-formulario textarea:focus {
+  border-color: #49637a;
+  background: #ffffff;
+}
+
+
+/* BOTÓN */
+.btn-rsvp {
+  width: 100%;
+  border: none;
+  border-radius: 20px;
+  background: #6f93b9;
+  color: #ffffff;
+  padding: 11px 14px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.btn-rsvp:hover {
+  opacity: .95;
+}
+
+.btn-rsvp:active {
+  transform: scale(.98);
+}
+
+
+/* SOBRE */
+.rsvp-sobre {
+  position: absolute;
+  bottom: -230px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 385px;
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
+}
+
+
+/* TEXTO FINAL */
+.rsvp-texto-final {
+  max-width: 320px;
+  margin: 200px auto 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 26px;
+  line-height: 1.2;
+  color: #3c3129;
+}
+
+.imagen-final {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  margin: 0;
+
+  object-fit: cover;
+  margin-top: -1px;
 }
