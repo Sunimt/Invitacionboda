@@ -1975,9 +1975,14 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
   max-width: 320px;
   margin: 200px auto 0;
   font-family: "Cormorant Garamond", serif;
-  font-size: 20px;
+  font-size: 28px;
   line-height: 1.2;
   color: #3c3129;
+}
+
+.rsvp-texto-final span {
+  font-family: "Pinyon Script", cursive;
+  font-size: 50px;
 }
 
 .imagen-final {
