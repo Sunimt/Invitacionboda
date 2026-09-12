@@ -10,7 +10,9 @@
 </head>
 
 <body>
-
+<audio id="musicaBoda" preload="auto" loop>
+    <source src="audio/Es verdad - Daniel, me estas matando.mpeg" type="audio/mpeg">
+</audio>
     <!-- PANTALLA DE ENTRADA -->
     <section class="entrada" id="entrada">
 
@@ -38,13 +40,15 @@
 
                 <h1>Sunim <span>&</span> Asahel</h1>
 
-                <div class="sello" aria-hidden="true">
-                    <img src="images/sello.png" alt="">
-                </div>
+                <div class="abrir-invitacion" id="abrirInvitacion" role="button" tabindex="0">
 
-                <button id="abrirInvitacion">
-                    CLIC PARA ABRIR INVITACIÓN
-                </button>
+    <div class="sello">
+        <img src="images/sello.png" alt="Abrir invitación">
+    </div>
+
+    <p>CLIC PARA ABRIR INVITACIÓN</p>
+
+</div>
 
             </div>
 
@@ -88,13 +92,13 @@
 
     <div class="padres">
       <div>
-        <p>Lino Leyva Atondo</p>
-        <p>Hilda Maricela Borbón Álvarez</p>
+        <p>Samuel Mojardin Izquierdo</p>
+        <p>Dora María Torres Ballesteros</p>
       </div>
 
       <div>
-        <p>Samuel Mojardin Izquierdo</p>
-        <p>Dora María Torres Ballesteros</p>
+        <p>Lino Leyva Atondo</p>
+        <p>Hilda Maricela Borbón Álvarez</p>
       </div>
     </div>
 
@@ -243,16 +247,6 @@
 
 <section class="seccion-flores-foto">
 
-  <!-- HORTENSIAS #2 -->
- 
-
-  <!-- RASGADO SUPERIOR -->
-  <img 
-    src="images/papel-rasgado-azul.png"
-    class="rasgado-superior"
-    alt=""
-  >
-
   <!-- FOTO -->
   <div class="contenedor-foto-seccion">
     <img 
@@ -262,12 +256,7 @@
     >
   </div>
 
-  <!-- RASGADO INFERIOR -->
-  <img 
-    src="images/papel-rasgado.png"
-    class="rasgado-inferior"
-    alt=""
-  >
+
 
 
 </section>
@@ -380,11 +369,7 @@
 
 <section class="seccion-corte-foto">
 
-  <img 
-    src="images/papel-rasgado.png"
-    class="rasgado-arriba"
-    alt=""
-  >
+ 
 
   <img 
     src="images/tu-foto.jpg"
@@ -392,11 +377,7 @@
     alt=""
   >
 
-  <img 
-    src="images/papel-rasgado.png"
-    class="rasgado-abajo"
-    alt=""
-  >
+ 
 
 </section>
 </section>
@@ -445,7 +426,7 @@
   </div>
 
   <p class="rsvp-texto-final">
-    Con mucho cariño, agradeceremos nos confirme su asistencia antes del 01 de Noviembre.
+    Con mucho cariño, Sunim y Asahel
   </p>
 
 </section>
@@ -454,7 +435,9 @@
 </main>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="script.js"></script>
 
 </body>

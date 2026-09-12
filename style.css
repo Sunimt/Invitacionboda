@@ -315,34 +315,29 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 
 .love-letter {
     position: absolute;
-
-    /* MÁS ARRIBA */
-    top: 10%;
-
+    top: 5%;
     left: 50%;
     transform: translateX(-50%);
 
     width: 100%;
     text-align: center;
 
-    font-size: clamp(9px, 1.3vw, 20px);
-
-    /* MÁS GRUESA */
-    font-weight: 600;
-
+    font-size: clamp(15px, 1.8vw, 15px);
+    font-weight: 900;
     letter-spacing: 3.5px;
+    font-weight: bold;
 
     color: #55483f;
-
     margin: 0;
 }
 
 .contenido-sobre h1 {
     font-family: "Pinyon Script", cursive;
-    font-size: clamp(36px, 6vw, 70px);
+    font-size: clamp(32px, 5vw, 55px);
     font-weight: 400;
     color: #55483f;
     line-height: 1;
+
 }
 
 .contenido-sobre h1 span {
@@ -353,17 +348,31 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 
 .sello {
     position: absolute;
-    top: 60%;
-    left: 50%;
+    top: -280%;
+    left: 37%;
     transform: translate(-50%, -50%)
         translateZ(18px);
     width: clamp(75px, 17vw, 130px);
     height: auto;
     filter:drop-shadow(0 10px 7px rgba(51,44,36,.28))
         drop-shadow(0 2px 2px rgba(51,44,36,.16));
+    cursor: pointer;
+
+    animation: latido 2s ease-in-out infinite;
+    z-index: 1;
 }
 
-.sello img { display: block; width: 100%; height: auto; }
+.sello img { display: block; width: 100%; height: auto; cursor: pointer;}
+
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
 
 #abrirInvitacion {
     position: absolute;
@@ -381,8 +390,9 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 
     /* MÁS GRUESO */
     font-family: "Cormorant Garamond", serif;
-    font-size: clamp(10px, 1.4vw, 20px);
-    font-weight: 600;
+    font-size: clamp(15px, 2vw, 20px);
+    font-weight: 900;
+    font-weight: bold;
 
     letter-spacing: 3.2px;
 
@@ -1085,11 +1095,11 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
     position: absolute;
 
     left: -10px;
-    bottom: -50px;
-    top: -102px;
+    bottom: -30px;
+    top: -52px;
 
     width: calc(100% + 20px);
-    height: 250px;
+    height: 180px;
 
     object-fit: fill;
 
@@ -1120,17 +1130,16 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 
 .seccion-foto {
     position: relative;
-
     width: 100%;
-
     overflow: hidden;
 }
 
 .foto-seccion-img {
     display: block;
-
     width: 100%;
     height: auto;
+
+    transform: translateY(-01px);
 }
 
 
@@ -1253,7 +1262,7 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 /* FRASE DE ARRIBA */
 .bendicion {
   font-family: "Cormorant Garamond", serif;
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: 2px;
   line-height: 1.5;
 
@@ -1320,7 +1329,7 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 .frase-invitacion {
   font-family: "Cormorant Garamond", serif;
 
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 1.7px;
 
   line-height: 1.5;
@@ -1351,7 +1360,7 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 
 .versiculo {
   font-family: "Cormorant Garamond", serif;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.5;
   font-style: italic;
 
@@ -1359,11 +1368,12 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 
   max-width: 330px;
   margin: 0 auto 14px;
+  margin-top: 15%;
 }
 
 .cita-biblica {
   font-family: "Cormorant Garamond", serif;
-  font-size: 12px;
+  font-size: 15px;
   letter-spacing: 2px;
 
   color: #9db8e0;
@@ -1425,10 +1435,9 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
   display: block;
 
   width: 100%;
-  height: 520px;
+
    background: #F6F3E5;
-  object-fit: cover;
-  object-position: center;
+
 
 }
 
@@ -1497,10 +1506,10 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 .formal-box {
   position: absolute;
 
-  top: 10px;
+  top: -20px;
   left: 0;
 
-  width: 215px;
+  width: 220px;
 
   background: #ffffff;
 
@@ -1517,8 +1526,8 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 
 .formal-titulo {
   font-family: "Cormorant Garamond", serif;
-  font-size: 19px;
-  font-weight: 700;
+  font-size: 27px;
+  font-weight: 900;
   letter-spacing: 2px;
 
   margin-bottom: 8px;
@@ -1528,7 +1537,7 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 
 .formal-box p {
   font-family: "Cormorant Garamond", serif;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.45;
 
   margin: 0;
@@ -1560,7 +1569,7 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 .dibujo-dresscode {
   position: absolute;
 
-  top: 160px;
+  top: 170px;
   right: 10px;
 
   width: 225px;
@@ -1586,9 +1595,9 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
   position: absolute;
 
   left: 18px;
-  bottom: 100px;
+  bottom: 80px;
 
-  width: 170px;
+  width: 180px;
 
   background: #49637a;
   color: #F6F3E5;
@@ -1604,7 +1613,7 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 
 .western-aviso {
   font-family: "Cormorant Garamond", serif;
-  font-size: 15px;
+  font-size: 20px;
   line-height: 1.4;
 
   margin-bottom: 18px;
@@ -1614,7 +1623,7 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 
 .no-usar {
   font-family: "Cormorant Garamond", serif;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.4;
 
   margin-bottom: 12px;
@@ -1695,12 +1704,12 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
   top: -40px;
   left: 25px;
 
-  width: 285px;
-  min-height: 210px;
+  width: 330px;
+  min-height: 250px;
 
   background: #ffffff;
 
-  padding: 65px 28px 35px;
+  padding: 65px 28px 45px;
 
   text-align: center;
 
@@ -1719,7 +1728,7 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 
   transform: translateX(-50%);
 
-  width: 65px;
+  width: 75px;
   height: auto;
 
   z-index: 4;
@@ -1730,8 +1739,9 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 .texto-regalos {
   font-family: "Cormorant Garamond", serif;
 
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.55;
+  font-weight: 900;
 
   letter-spacing: 1px;
 
@@ -1745,10 +1755,10 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 .calas-regalos {
   position: absolute;
 
-  left: 0;
-  bottom: 90px;
+  left: 20px;
+  bottom: 80px;
 
-  width: 170px;
+  width: 210px;
   height: auto;
 
   z-index: 3;
@@ -1761,11 +1771,11 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 .circulo-regalos {
   position: absolute;
 
-  right: 10px;
-  bottom: 120px;
+  right: 15px;
+  bottom: 110px;
   
 
-  width: 185px;
+  width: 190px;
   height: auto;
 
   z-index: 5;
@@ -1774,102 +1784,37 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 }
 
 .seccion-corte-foto {
-  position: relative;
+    position: relative;
+    width: 100%;
+    margin-top: -150px;
 
-  width: 100%;
-  height: 520px;
-  margin-top: -150px;
-  
+    overflow: visible;
 
-  overflow: hidden; 
-    border: none !important;
-  outline: none !important;
-
-  background: #F6F3E5;
+    
+    background: #F6F3E5;
 }
 
 .seccion-corte-foto::before {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 5px;
-
-  background: #F6F3E5;
-
-  z-index: 20;
-
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #F6F3E5;
+    z-index: 20;
+    pointer-events: none;
 }
+
 /* FOTO */
 .foto-corte {
-  width: 100%;
-  height: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-
-  display: block;
-
-  object-fit: cover;
-  object-position: center;
-
-  position: relative;
-  z-index: 2;
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 
-/* RASGADO ARRIBA */
-.rasgado-arriba {
-  position: absolute;
 
-  top: -100px;
-  left: -10px;
-
-  width: calc(100% + 20px);
-  height: 150px;
-
-  object-fit: fill;
-
-  z-index: 3;
-
-  pointer-events: none;
-}
-
-
-/* RASGADO ABAJO */
-.rasgado-abajo {
-  position: absolute;
-
-  bottom: -100px;
-  left: -10px;
-
-  width: calc(100% + 20px);
-  height: 150px;
-
-  object-fit: fill;
-
-  z-index: 3;
-
-  transform: rotate(180deg);
-
-  pointer-events: none;
-}
-
-.seccion-corte-foto,
-.seccion-anterior,
-.seccion-siguiente {
-  border: none !important;
-  border-top: none !important;
-  border-bottom: none !important;
-
-  outline: none !important;
-  box-shadow: none !important;
-
-}
 
 .seccion-rsvp {
   width: 100%;
@@ -1910,7 +1855,7 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 /* FLORES */
 .rsvp-flores {
   position: absolute;
-  top: -50px;
+  top: -60px;
   left: 50%;
   transform: translateX(-50%);
   width: 250px;
@@ -1946,7 +1891,7 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 .rsvp-aviso {
   margin: 0 0 16px;
   font-family: "Cormorant Garamond", serif;
-  font-size: 15px;
+  font-size: 18px;
   color: #49637a;
 }
 
@@ -1960,7 +1905,7 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
   display: block;
   margin-bottom: 6px;
   font-family: "Cormorant Garamond", serif;
-  font-size: 15px;
+  font-size: 18px;
   color: #2e2e2e;
 }
 
@@ -2030,7 +1975,7 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
   max-width: 320px;
   margin: 200px auto 0;
   font-family: "Cormorant Garamond", serif;
-  font-size: 26px;
+  font-size: 20px;
   line-height: 1.2;
   color: #3c3129;
 }
