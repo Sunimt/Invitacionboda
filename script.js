@@ -15,6 +15,21 @@ botonAbrir.addEventListener("click", () => {
     abriendo = true;
     musica.play();
 
+    if ("mediaSession" in navigator) {
+    navigator.mediaSession.metadata = new MediaMetadata({
+        title: "Es verdad",
+        artist: "Daniel, me estás matando",
+        album: "Sunim & Asahel",
+        artwork: [
+            {
+                src: "Images/musica.jpg",
+                sizes: "1000x1000",
+                type: "image/jpeg"
+            }
+        ]
+    });
+}
+
     const tl = gsap.timeline();
 
     /* 1 — BOTÓN DESAPARECE SUAVEMENTE */
