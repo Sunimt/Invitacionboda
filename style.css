@@ -346,20 +346,28 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
     font-style: italic;
 }
 
-.sello {
-    position: absolute;
-    top: -280%;
-    left: 37%;
-    transform: translate(-50%, -50%)
-        translateZ(18px);
-    width: clamp(75px, 17vw, 130px);
-    height: auto;
-    filter:drop-shadow(0 10px 7px rgba(51,44,36,.28))
-        drop-shadow(0 2px 2px rgba(51,44,36,.16));
-    cursor: pointer;
+/* CELULAR — se queda exactamente como está */
+.sello { 
+    position: absolute; 
+    top: -280%; 
+    left: 37%; 
+    transform: translate(-50%, -50%) translateZ(18px); 
+    width: clamp(75px, 17vw, 130px); 
+    height: auto; 
+    filter: drop-shadow(0 10px 7px rgba(51,44,36,.28)) 
+            drop-shadow(0 2px 2px rgba(51,44,36,.16)); 
+    cursor: pointer; 
+    animation: latido 2s ease-in-out infinite; 
+    z-index: 1; 
+}
 
-    animation: latido 2s ease-in-out infinite;
-    z-index: 1;
+/* PC */
+@media (min-width: 769px) {
+    .sello {
+        top: -410%;
+        left: 35%;
+        width: 110px;
+    }
 }
 
 .sello img { display: block; width: 100%; height: auto; cursor: pointer;}
