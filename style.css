@@ -2020,3 +2020,14 @@ html,
 body {
     overflow-x: clip;
 }
+
+.itinerario-hora small {
+    font-size: 0.55em;
+    letter-spacing: 1px;
+    font-weight: inherit;
+    vertical-align: baseline;
+}
+
+.itinerario-hora {
+    white-space: nowrap;
+}
