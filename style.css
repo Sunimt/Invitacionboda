@@ -6,10 +6,17 @@ html, body { width: 100%; min-height: 100%; }
 body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 
 /* PANTALLA DE ENTRADA */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 .entrada {
     position: fixed;
     inset: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     z-index: 100;
     display: flex;
@@ -19,6 +26,8 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
     background: #f2eee7 url("images/fondo-entrada2.png") center / cover no-repeat;
     transition: opacity .45s ease,
         visibility .45s ease;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 /* ========================================
@@ -593,6 +602,8 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
     object-fit: fill;
 
     z-index: 4;
+
+    
 }
 
 
@@ -639,7 +650,7 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
     }
 
     .solo-escritorio {
-        width: 100vw;
+        width: 100%;
         height: 100vh;
 
         display: flex;
@@ -779,7 +790,6 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
     align-items: center;
     min-width: 58px;
 }
-
 .bloque-tiempo span {
     font-family: "Cormorant Garamond", serif;
     font-size: 42px;
@@ -820,10 +830,7 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
     }
 
 
-    .bloque-tiempo {
-        min-width: 55px;
-    }
-
+   
     .bloque-tiempo span {
         font-size: 40px;
     }
@@ -1115,6 +1122,8 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 
     pointer-events: none;
 
+    
+
 }
 /* HORTENSIAS */
 
@@ -1164,6 +1173,8 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
     object-fit: fill;
 
     z-index: 4;
+
+    
 }
 
 .seccion-itinerario {
@@ -2003,4 +2014,9 @@ body { font-family: "Cormorant Garamond", serif; background: #f1eee5; }
 
   object-fit: cover;
   margin-top: -1px;
+}
+
+html,
+body {
+    overflow-x: clip;
 }
